@@ -1,0 +1,9 @@
+{
+  "name": "@alon/shared",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Content model shared by the mobile app and the server",
+  "main": "src/index.ts",
+  "types": "src/index.ts"
+}

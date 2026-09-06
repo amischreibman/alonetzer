@@ -1,0 +1,27 @@
+node_modules/
+dist/
+build/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# Android build outputs (the APK is produced by CI or locally, never committed)
+app/android/app/build/
+app/android/build/
+app/android/.gradle/
+app/android/local.properties
+app/android/app/release/
+app/android/app/debug/
+app/android/capacitor-cordova-android-plugins/build/
+app/android/.idea/
+app/android/*.iml
+app/android/app/*.iml
+
+# Firebase secrets (add locally, never commit)
+app/android/app/google-services.json
+server/firebase-service-account.json
+server/data/
+out/
+app/.env.production

@@ -1,0 +1,24 @@
+{
+  "name": "alonetzer-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Alon Netzer-Sereni newsletter - mobile app (Capacitor) + push notification server",
+  "workspaces": [
+    "shared",
+    "app",
+    "server"
+  ],
+  "scripts": {
+    "build": "npm run build -w app && npm run build -w server",
+    "test": "npm run test -w server && npm run typecheck -w app",
+    "dev:app": "npm run dev -w app",
+    "dev:server": "npm run dev -w server",
+    "android:sync": "npm run build -w app && npx -w app cap sync android",
+    "apk:debug": "npm run android:sync && cd app/android && ./gradlew assembleDebug",
+    "apk:release": "npm run android:sync && cd app/android && ./gradlew assembleRelease",
+    "import:base44": "npm run import:base44 -w server"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,17 @@
+services:
+  alon:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    ports:
+      - "8080:8080"
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      WEB_DIR: /srv/app/dist
+    volumes:
+      - alon-data:/data
+      - ./firebase-service-account.json:/srv/server/firebase-service-account.json:ro
+    restart: unless-stopped
+volumes:
+  alon-data:

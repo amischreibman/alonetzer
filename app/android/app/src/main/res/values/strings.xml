@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">עלון נצר-סרני</string>
+    <string name="title_activity_main">עלון נצר-סרני</string>
+    <string name="package_name">il.org.netzer.alon</string>
+    <string name="custom_url_scheme">alonetzer</string>
+</resources>

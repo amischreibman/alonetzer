@@ -1,0 +1,41 @@
+{
+  "name": "alonetzer-server",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Standalone backend for the Alon Netzer-Sereni app: users, content, uploads, push notifications",
+  "main": "dist/server/src/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/server/src/index.js",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "create-admin": "tsx src/cli/create-admin.ts",
+    "import:base44": "tsx src/cli/import-base44.ts",
+    "send-push": "tsx src/cli/send-push.ts"
+  },
+  "dependencies": {
+    "@alon/shared": "*",
+    "@fastify/cors": "^11.0.0",
+    "@fastify/multipart": "^9.0.0",
+    "@fastify/rate-limit": "^10.0.0",
+    "@fastify/static": "^8.0.0",
+    "bcryptjs": "^3.0.0",
+    "better-sqlite3": "^12.0.0",
+    "dotenv": "^17.0.0",
+    "fastify": "^5.0.0",
+    "firebase-admin": "^13.0.0",
+    "nodemailer": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^22.0.0",
+    "@types/nodemailer": "^6.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
