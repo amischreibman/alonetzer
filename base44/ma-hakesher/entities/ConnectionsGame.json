@@ -1,0 +1,45 @@
+{
+  "name": "ConnectionsGame",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Display name of the puzzle"
+    },
+    "groups": {
+      "type": "array",
+      "description": "Exactly four groups, ordered from easiest to hardest",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "description": "The common denominator of the group" },
+          "explanation": { "type": "string", "description": "Shown to the player once the group is revealed" },
+          "words": { "type": "array", "items": { "type": "string" }, "description": "Exactly four terms" }
+        },
+        "required": ["title", "words"]
+      }
+    },
+    "board": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "The sixteen terms in their shuffled board order"
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": false,
+      "description": "Only published puzzles are visible to members"
+    }
+  },
+  "required": ["title", "groups", "board"],
+  "rls": {
+    "create": { "user_condition": { "role": "admin" } },
+    "read": {
+      "$or": [
+        { "data.is_published": true },
+        { "user_condition": { "role": "admin" } }
+      ]
+    },
+    "update": { "user_condition": { "role": "admin" } },
+    "delete": { "user_condition": { "role": "admin" } }
+  }
+}

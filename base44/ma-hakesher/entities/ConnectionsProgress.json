@@ -1,0 +1,33 @@
+{
+  "name": "ConnectionsProgress",
+  "type": "object",
+  "properties": {
+    "game_id": { "type": "string", "description": "Id of the ConnectionsGame record" },
+    "user_email": { "type": "string" },
+    "user_name": { "type": "string" },
+    "solved_groups": {
+      "type": "array",
+      "items": { "type": "number" },
+      "description": "Indexes of the groups the player revealed, in the order they were revealed"
+    },
+    "mistakes": { "type": "number", "default": 0 },
+    "status": {
+      "type": "string",
+      "enum": ["in_progress", "solved", "failed"],
+      "default": "in_progress"
+    },
+    "solved_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["game_id"],
+  "rls": {
+    "create": { "created_by": "{{user.email}}" },
+    "read": {
+      "$or": [
+        { "created_by": "{{user.email}}" },
+        { "user_condition": { "role": "admin" } }
+      ]
+    },
+    "update": { "created_by": "{{user.email}}" },
+    "delete": { "user_condition": { "role": "admin" } }
+  }
+}
